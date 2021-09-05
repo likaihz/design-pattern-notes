@@ -1,0 +1,25 @@
+@startuml 朴素实现
+interface Messager
+package 平台实现 <<Rectangle>> {
+    abstract PcMessagerBase
+    abstract MobileMessagerBase
+}
+package 业务抽象 <<Rectangle>> {
+    class PcMessagerLite
+    class PcMessagerPerfect
+    class MobileMessageLite
+    class MobileMessagePerfect
+}
+
+Messager <|.. PcMessagerBase
+Messager <|.. MobileMessagerBase
+
+PcMessagerBase <|-- PcMessagerLite
+PcMessagerBase <|-- PcMessagerPerfect
+
+MobileMessagerBase <|-- MobileMessageLite
+MobileMessagerBase <|-- MobileMessagePerfect
+
+'''''''''' settings ''''''''''''
+hide empty members
+@enduml
