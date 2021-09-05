@@ -1,0 +1,22 @@
+@startuml Bridge模式
+abstract Messeger
+interface PlatformFunc
+
+package 平台实现 <<Rectangle>> {
+    class PcPlatformFunc
+    class MobilePlatformFunc
+}
+package 业务抽象 <<Rectangle>> {
+    class MessegerLite
+    class MessegerPerfect
+}
+PlatformFunc <|.. PcPlatformFunc
+PlatformFunc <|.. MobilePlatformFunc
+Messeger <|-- MessegerLite
+Messeger <|-- MessegerPerfect
+
+Messeger *-- PlatformFunc
+
+''''''''''' settings '''''''''
+hide empty members
+@enduml
