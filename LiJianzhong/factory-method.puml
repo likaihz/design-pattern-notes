@@ -1,0 +1,19 @@
+@startuml factory method
+abstract Creator {
+    {abstract} factoryMethod()
+    anOperation()
+}
+class ConcreteCreator {
+    factoryMethod()
+}
+interface Product
+class ConcreteProduct
+
+Creator <|-- ConcreteCreator : extends
+Product <|.. ConcreteProduct: implements
+
+ConcreteProduct <-- ConcreteCreator
+Product <-- Creator
+
+hide empty members
+@enduml
